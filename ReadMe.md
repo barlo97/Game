@@ -14,7 +14,8 @@ Those files are important, especially the .gitignore files as it will allow us t
 
 **git config core.autocrlf true**
 
-3.One useful command I found: /
+3.One useful command I found: 
+
 **rm .git/index.lock**
 This can used after this error messages appears: **Another git process seems to be running in this repository**
 
