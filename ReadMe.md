@@ -26,6 +26,18 @@ A & B ---> A & B on the piano.\
 
 A second difficulty mode could be a scenario where only one letter is presented and the second is empty - at the same time there is a Interval that a user needs to match (displayed in the centre or somewhere on the screen ) two the piano. This would look something like this : (Extremely raw example in paint):\
 
+Note: Major 2nd is just an example , this could any other interval. 
+
+![](images/Level2.png.png)
+
+
+
+
+Before each difficulty it would be best to have a short animated tutorial about the intervals and this could even be applied to each individual intervals - it would be most likely best to do it before each of the interval with a short explanation - and then have the player to repeat the same interval , however starting from different notes each time. 
+
+In fact, before each section and level there should be a short animated tutorial on how to complete the secion and/or level. 
+
+
 
 
 Level 3 - Chords\
