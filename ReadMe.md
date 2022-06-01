@@ -17,6 +17,7 @@ This game would ideally be for  phone or tablet- android - or ios or any other s
 The Idea of the game is to have a letter (displayed on some sort of nicely designed cube that is representing the key from the piano ) constatly moving towards the piano keys  ( which are displayed in front of the player at a certain distance ). The players task is to match the letter with the corresponding key on the piano. For example A ----> A on the piano , B ----> B on the piano, C ---> C on the piano ( same for all of the white and black keys). When the letter hits the piano in the right place, a player gets 1 point, the letter is moving forward, new piano keys are generated and the player needs to match the new letter again (The previous letter is changed into a new one in the same place). This is repeated for a number of times until a certain amount of points is scored that allows a player to unlock the next level . The pace at which the letter is moving increseas gradually - starts slowly and then slightly increases and goes faster. This gradully  decreases the time that a player has to match a letter with a corresponding place on the piano.
 
 **Level 2 - Intervals**
+
 Interval is a difference in pitch between two sounds. On the piano it is a difference between two keys. 
 At the second level a player will need to match two letters that correspond to two places on the piano. The rest of the architecture would be similar to Level 1. A player can control two letters - that means there needs to be some kind of mechanism that allows to switch between two letters - unless I can control them at the same time. 
 
@@ -41,6 +42,7 @@ In fact, before each section and level there should be a short animated tutorial
 
 
 **Level 3 - Chords**
+
 A player needs to match three letters to the piano and the rest of the architecture and mechanism similar to Level 1 and 2. 
 
 
