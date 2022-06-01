@@ -1,6 +1,12 @@
-## Game in Unity
+## Game in Unity - Journal 
 
 A Game in Unity that helps people to learn and memorize keys on the piano, musical interval and chords. 
+
+One of the most effective ways of learning the notes, intervals and chords on the piano is through constant repetition. Although, in the later stages of learning and musical development it's desired that a student improves through his/her own experimental framework it is (I believe) important that he/she aquires good foundation through repetitive tasks.
+
+Repetitive tasks allows a student to become quicker and better, thus reapeting over and over recognizing nots, intervals and chords will make them confident. 
+
+The game that I am developing will be built around repition memorization. At the same time I would like my game to be fun and challenging in a way that awakens competitive spirit - not against someone else , but against themeselves. I would like to engange positive emotions that a player would experience during the gameplay. I would like them to think " Yes, finally! I can recognize this note - or that note " "Yes!!! I finally managed to remember all of the notes" and so on. So in other words I would like them to experience a spirit of success - or succesfull compleition of a certain task or a certain stage of improvement and development. I would like them to feel that the are indeed learning something , so that when they sit in front of the actual piano , or grandpiano they will be confident in what the are doing. 
 
 ## First things First - pushing to Github 
 The first things that needs to be done is to push the initial project to Github. I have already had a few problems with that - not a surprise, but managed to fix them. The following steps need to be undertaken while pushing a Unity project to Github: 
