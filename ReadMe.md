@@ -8,8 +8,30 @@ Repetitive tasks allows a student to become quicker and better, thus reapeting o
 
 The game that I am developing will be built around repition memorization. At the same time I would like my game to be fun and challenging in a way that awakens competitive spirit - not against someone else , but against themeselves. I would like to engange positive emotions that a player would experience during the gameplay. I would like them to think " Yes, finally! I can recognize this note - or that note " "Yes!!! I finally managed to remember all of the notes" and so on. So in other words I would like them to experience a spirit of success - or succesfull compleition of a certain task or a certain stage of improvement and development. I would like them to feel that the are indeed learning something , so that when they sit in front of the actual piano , or grandpiano they will be confident in what the are doing.
 
-#The Game Idea
-The Idea of the game is to have a letter ( that is representing the key from the piano ) constatly moving towards the piano keys  ( which are displayed in front of the player at a certain distance ). The players task is to match the letter with the corresponding key on the piano. For example A ----> A on the piano , B ----> B on the piano, C ---> C on the piano ( same for all of the white and black keys). When the letter hits the piano in the right place, a player gets 1 point, the letter is moving forward, new piano keys are generated and the player needs to match the letter again. This is repeated for a number of times until a certain amount of points is scored that allows a player to move to the next level. The pace at which the letter is moving increseas gradually - starts slowly and then slightly increases and go faster.
+#The Game Idea\
+
+This game would ideally be for  phone or tablet- android - or ios or any other system. It could also be played on a regular computer or laptop, however the desing would be primiraly for a phone or tablet. 
+
+Level 1 - Single Notes/Keys\
+
+The Idea of the game is to have a letter (displayed on some sort of nicely designed cube that is representing the key from the piano ) constatly moving towards the piano keys  ( which are displayed in front of the player at a certain distance ). The players task is to match the letter with the corresponding key on the piano. For example A ----> A on the piano , B ----> B on the piano, C ---> C on the piano ( same for all of the white and black keys). When the letter hits the piano in the right place, a player gets 1 point, the letter is moving forward, new piano keys are generated and the player needs to match the new letter again (The previous letter is changed into a new one in the same place). This is repeated for a number of times until a certain amount of points is scored that allows a player to unlock the next level . The pace at which the letter is moving increseas gradually - starts slowly and then slightly increases and goes faster. This gradully  decreases the time that a player has to match a letter with a corresponding place on the piano.\
+
+Level 2 - Intervals\
+Interval is a difference in pitch between two sounds. On the piano it is a difference between two keys. 
+At the second level a player will need to match two letters that correspond to two places on the piano. The rest of the architecture would be similar to Level 1. A player can control two letters - that means there needs to be some kind of mechanism that allows to switch between two letters - unless I can control them at the same time. 
+
+The difficulty of this level can also be increased and different sublevels can be added or simply diffrent difficulty modes can be added. The first difficulty mode could only focus on the player matching two letters to the piano: \
+
+A & B ---> A & B on the piano.\
+
+A second difficulty mode could be a scenario where only one letter is presented and the second is empty - at the same time there is a Interval that a user needs to match (displayed in the centre or somewhere on the screen ) two the piano. This would look something like this : (Extremely raw example in paint):\
+
+
+
+Level 3 - Chords\
+A player needs to match three letters to the piano and the rest of the architecture and mechanism similar to Level 1 and 2. 
+
+
 
 ## First things First - pushing to Github 
 The first things that needs to be done is to push the initial project to Github. I have already had a few problems with that - not a surprise, but managed to fix them. The following steps need to be undertaken while pushing a Unity project to Github: 
