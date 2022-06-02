@@ -2,8 +2,8 @@
 
 The first thing that I need to do is to create a cube and a platform. A Cube should have a letter designed on it in the future. 
 
-Auto complete in VS 2019 with Unity -
-1.Ensure Game Development with Unity is installed with VS. 
+Auto complete in VS 2019 with Unity -\
+1.Ensure Game Development with Unity is installed with VS. \
 2.Go to Edit -- Preferences -- External Tools -- Script Editor (set to VS 2019)
 
 
@@ -39,7 +39,7 @@ the Update method was called. For example if our computer is running at\
 60 FPS it will be excecuted 60 times. So it will be: \
 60 * (0,0,200) = 12000 units per second. \
 If a computer runs at 100 FPS this would be: \
-100 * (0,0,200) = 20000 units per second. \
+100 * (0,0,200) = 20000 units per second. 
 
 **Units per second** in unity refers to the velocity of an object. 
 For example if I have an object with coordinates (0, 0, 0), 
@@ -54,7 +54,7 @@ So If my computer runs at 100 FPS this would be: 1 / 100 = 0.01\
 Or if my computer runst at 60 FPS this would be: 1 /60 = 0.016666666666667\
 So for the computer that runs at 100 FPS the new resul tould be:\
 100 * (0,0,200) * 0.01  = 200 units per second\
-60* (0,0,200) * 0.016666666666667 = 200 units per second\
+60* (0,0,200) * 0.016666666666667 = 200 units per second
 
 So now we can see how time.delta is used to even out the performance and 
 get the precise representation of how the objects are moving. We use it to make sure
