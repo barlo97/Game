@@ -1,4 +1,4 @@
-## Creating a Cube 
+# Creating a Cube 
 
 The first thing that I need to do is to create a cube and a platform. A Cube should have a letter designed on it in the future. 
 
@@ -7,7 +7,7 @@ Auto complete in VS 2019 with Unity -\
 2.Go to Edit -- Preferences -- External Tools -- Script Editor (set to VS 2019)
 
 
-# Update Vs Fixed Update Methods 
+## Update Vs Fixed Update Methods 
 
 Update is called once per frame
 A computer draws an image multiple times a second 
@@ -30,7 +30,7 @@ so anything that needs to be applied to a rigidbody should happen in FixedUpdate
 
 
 
-# Time.deltaTime 
+## Time.deltaTime 
 
 **Time.delta time** is the completion of seconds since the last frame.\
 It is used to even out the performance of the game. The code inside \
