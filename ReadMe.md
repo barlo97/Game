@@ -34,9 +34,10 @@ A second difficulty mode could be a scenario where only one letter is presented 
 
 
 
-Before each difficulty mode it would be best to have a short animated tutorial about the intervals and this could even be applied to each individual intervals - it would be most likely best to do it before each of the interval with a short explanation - and then have the player to repeat the same interval , however starting from different notes each time. 
+Before each difficulty mode it would be best to have a short animated tutorial about the intervals and this could even be applied to each individual intervals - it would be most likely best to do it before each of the interval with a short explanation - and then have the player to repeat the same interval , however starting from different notes each time.
 
-In fact, before each section and level there should be a short animated tutorial on how to complete the secion and/or level. 
+In fact, before each section and level there should be a short animated tutorial with a brief explanation about the upcoming interval or chord and on how to complete the secion and/or level.
+
 
 
 
@@ -46,11 +47,11 @@ A musical chord comprises of three or more notes.
 
 A player needs to match three letters to the piano and the rest of the architecture and mechanism similar to Level 1 and 2. Here I could also do different difficulty modes, similar to Level 2. For example: 
 
-**1st Difficulty Mode:** Three out of three letters is displayed, and the player needs to match all of them with their corresponding places on the piano.\
-**2nd Difficulty Mode:** Two out of three letters are displayed, there is displayed Interval on screen that indacates how the player needs to match the letter with the piano keys.\
-**2nd Difficulty Mode:** Three out of three letters are displayed, there is displayed Interval on screen that indacates how the player needs to match the letter with the piano keys.
+**1st Difficulty Mode:** Three out of three letters are displayed, and the player needs to match all of them with their corresponding places on the piano.\
+**2nd Difficulty Mode:** Two out of three letters are displayed, and there is displayed Interval on screen that indacates how the player needs to match the letter with the piano keys.\
+**2nd Difficulty Mode:** One out of three letters is displayed, there is displayed Interval on screen that indacates how the player needs to match the letter with the piano keys.
 
-
+By adding such difficulty modes - not only the player learns the keys on the piano , by the names of the intervals and chords. This widens the players' musical knoweldge and hopefully will help them when they actually sit in front of the piano. 
 
 ## First things First - pushing to Github 
 The first things that needs to be done is to push the initial project to Github. I have already had a few problems with that - not a surprise, but managed to fix them. The following steps need to be undertaken while pushing a Unity project to Github: 
