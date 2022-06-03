@@ -1,4 +1,4 @@
-# Creating a Cube 
+# Creating a Cube & Adding Movement & Camera Follow 
 
 The first thing that I need to do is to create a cube and a platform. A Cube should have a letter designed on it in the future. 
 
@@ -7,7 +7,7 @@ Auto complete in VS 2019 with Unity -\
 2.Go to Edit -- Preferences -- External Tools -- Script Editor (set to VS 2019)
 
 
-## Update Vs Fixed Update Methods 
+## Update Vs Fixed Update Methods vs Late Update 
 
 Update is called once per frame
 A computer draws an image multiple times a second 
@@ -25,7 +25,11 @@ per frame, depending on how many physics frames per second are set in the time s
 and how fast/slow the framerate is.FixedUpdate is used for being in-step with the physics engine, 
 so anything that needs to be applied to a rigidbody should happen in FixedUpdate
 
-
+LateUpdate is called after all Update functions have been called. This is useful to 
+order script execution. For example a follow camera should always be implemeneted in here
+because it tracks objects that might have moved inside Update. All of the code inside the Update method 
+will be executed before the LateUpdate is called. By the time LateUpdate is called
+our cube has already moved. 
 
 
 
@@ -52,13 +56,13 @@ Regarding what's a "grid unit" in meters: That depends on what you want it to be
 **Delta Time formula is: 1 / Framerate**
 So If my computer runs at 100 FPS this would be: 1 / 100 = 0.01\
 Or if my computer runst at 60 FPS this would be: 1 /60 = 0.016666666666667\
-So for the computer that runs at 100 FPS the new resul tould be:\
+So for the computer that runs at 100 FPS the new result would be:\
 100 * (0,0,200) * 0.01  = 200 units per second\
 60* (0,0,200) * 0.016666666666667 = 200 units per second
 
 So now we can see how time.delta is used to even out the performance and 
 get the precise representation of how the objects are moving. We use it to make sure
-that the game functions the same when it comes to a certain elements of the game an all computers. 
+that the game functions the same when it comes to a speed of certain elements of the game an all computers. 
 
          
         
