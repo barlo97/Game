@@ -47,10 +47,18 @@ public class PlayerKeyMovement : MonoBehaviour
 
 
     /*
-     FixedUpdate Update runs once per frame. FixedUpdate can run once, zero, or several times 
+     FixedUpdate can run once, zero, or several times 
      per frame, depending on how many physics frames per second are set in the time settings, 
      and how fast/slow the framerate is.FixedUpdate is used for being in-step with the physics engine, 
-     so anything that needs to be applied to a rigidbody should happen in FixedUpdate
+     so anything that needs to be applied to a rigidbody should happen in FixedUpdate. iT is called
+     before the Update method. It is different to Update because it is called a guaranteed set number 
+     of times per second. So it's not dependent on the framerate like Update. We can
+     set how many times we want the FixedUpdate method to be called. Open Unity and go to project settings
+     then --> time --> and fixed timestep. Timestep is simply a time that Unity will wait in between 
+     the FixedUpdated calls. By changing fixed timestep value we can shorten or extend this time. 
+     Since we know that this value is the duration between the FixedUpdate calls we can do a simpley calculation
+     to see how many times our FixedUpdate will be called: For example if we set the timestep to be 0.02, we will simply
+     divide 1000ms/0.02 = 50. It will be called 50 times per second. 
      */
     void FixedUpdate()
     {
@@ -65,12 +73,12 @@ public class PlayerKeyMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow))
         {
             // adding force on x axis - so to the right 
-            rb.AddForce(sideForce, 0, 0);
+            rb.AddForce(sideForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
             // adding force on -x axis - so to the left 
-            rb.AddForce(-sideForce, 0, 0);
+            rb.AddForce(-sideForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
     }
 
