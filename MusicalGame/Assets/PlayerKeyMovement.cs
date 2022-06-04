@@ -35,16 +35,10 @@ public class PlayerKeyMovement : MonoBehaviour
      For example If a computer runs at 100 FPS this Update is called 100 times. 
     */
 
+    void Update()
+    {
 
-
-
-
-
-
-
-
-
-
+    }
 
     /*
      FixedUpdate can run once, zero, or several times 
@@ -62,9 +56,9 @@ public class PlayerKeyMovement : MonoBehaviour
      */
     void FixedUpdate()
     {
-        /* apply constant force to this rigidbody so that it moves forward
+        /* apply constant force to this rigidbody so that it moves forward.
          Time.delta time is the completion of seconds since the last frame.
-         Using a variable forwardForce that is displayed in Unity inside the script section of the Cube, 
+         I am Using a variable forwardForce that is displayed in Unity inside the script section of the Cube, 
          because this script was applied to Cube. 
          */
         rb.AddForce(0, 0, forwardForce * Time.deltaTime);          

@@ -36,15 +36,12 @@ public class CameraFollow : MonoBehaviour
         
     }
 
-    /*LateUpdate is called after all Update functions have been called. This is useful to 
-      order script execution. For example a follow camera should always be implemeneted in here
-      because it tracks objects that might have moved inside Update. All of the code inside the Update method 
-      will be executed before the LateUpdate is called. By the time LateUpdate is called
-      our cube has already moved. */
+    
     private void FixedUpdate()
     {
-        Vector3 targetPosition = cube.position + offset; // the position of the cube + offset
-
+        Vector3 targetPosition = cube.position + offset; // the position of the cube + offset (offset is set to 0, 1, -5 in Unity) 
+                                                         // I am using Vector3 here because our objects are 3 dimensional - X, Y,Z 
+                                                         // Vector is a line between two points 
         /*Linear Interpolation - Lerp - process of smoothly going from point A to B.
           the last parameter for Lerp - t is just any value between 0 and 1. If its 0 than its going to give us 
           the first position (transform.position) and if its one its going to give us second position (targetPosition). If its in between 0 and 1
@@ -52,8 +49,8 @@ public class CameraFollow : MonoBehaviour
           no matter the frame rate.*/
         Vector3 smoothPosition = Vector3.Lerp(transform.position, targetPosition, smoothSpeed*Time.deltaTime);
         
-        /*assign the position of the cube to the position of the camera 
-          track the position of my cube*/                   
+        
+                          
         transform.position = smoothPosition;
 
         transform.LookAt(cube); // make the camera look at the cube all the time
