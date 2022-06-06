@@ -45,7 +45,7 @@ Material:
     - _Shininess: 0.078125
     - _SquashAmount: 1
     m_Colors:
-    - _Color: {r: 0.26526085, g: 0, b: 0.2830189, a: 1}
+    - _Color: {r: 0.8113208, g: 0.38561788, b: 0.2028302, a: 1}
     - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _TreeInstanceScale: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
