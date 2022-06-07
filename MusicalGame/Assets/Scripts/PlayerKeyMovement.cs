@@ -61,7 +61,7 @@ public class PlayerKeyMovement : MonoBehaviour
          I am Using a variable forwardForce that is displayed in Unity inside the script section of the Cube, 
          because this script was applied to Cube. 
          */
-        rb.AddForce(0, 0, forwardForce * Time.deltaTime);          
+    //   rb.AddForce(0, 0, forwardForce * Time.deltaTime);          
 
         // If a user pressed a right arrow on the keyboard else if the user pressed the left arrow 
         if (Input.GetKey(KeyCode.RightArrow))
