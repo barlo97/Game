@@ -34,9 +34,7 @@ public class MovementControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // StartCoroutine(keyWave());
-        spawner = new Spawner();
-        spawner.NewKey();
+        StartCoroutine(keyWave());
     }
 
     // Update is called once per frame
@@ -80,7 +78,7 @@ public class MovementControl : MonoBehaviour
             Destroy(gameObject);
         }
 
-        spawner.NewKey();
+        
 
     }
 

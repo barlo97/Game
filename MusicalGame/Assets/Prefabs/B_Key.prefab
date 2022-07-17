@@ -130,3 +130,4 @@ MonoBehaviour:
   maximumBorderHeight: 9
   minimumBorderHeight: -9
   fallTime: 0.8
+  respawnTime: 3
