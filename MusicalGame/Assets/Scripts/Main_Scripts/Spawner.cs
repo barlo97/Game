@@ -53,7 +53,17 @@ public class Spawner : MonoBehaviour
 
     public void NewKey()
     {
+        if(Keys is null)
+        {
+            Debug.LogError("Tablica Keys Jest nulem");
+        }
+        if(transform is null)
+        {
+            Debug.LogError("Transform Jest nulem");
+        }
+      
         Instantiate(Keys[Random.Range(0, Keys.Length)], transform.position, Quaternion.identity);
+
        
     }
 

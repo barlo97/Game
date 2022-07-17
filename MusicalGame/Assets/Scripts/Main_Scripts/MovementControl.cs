@@ -25,6 +25,8 @@ public class MovementControl : MonoBehaviour
     public float fallTime = 0.8f;
 
     public float respawnTime = 4.0f;
+
+    private Spawner spawner;
     #endregion
 
     #region Unity Methods
@@ -32,7 +34,9 @@ public class MovementControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(keyWave());
+        // StartCoroutine(keyWave());
+        spawner = new Spawner();
+        spawner.NewKey();
     }
 
     // Update is called once per frame
@@ -40,21 +44,9 @@ public class MovementControl : MonoBehaviour
     {
         //  transform.position = Vector2.MoveTowards(transform.position, targetPos, velocity * Time.deltaTime);
 
-       
 
-
-        if (Time.time - previousTime > fallTime)
-        {
-
-
-            transform.Translate(Vector2.down * speed * Time.deltaTime);
-
-
-            keyWave();
-
-
-
-        }
+        transform.Translate(Vector2.down * speed * Time.deltaTime);
+        
 
 
         if (Input.GetKeyDown(KeyCode.RightArrow) && transform.position.x < maximumBorderHeight)
@@ -67,6 +59,10 @@ public class MovementControl : MonoBehaviour
             targetPos = new Vector2(transform.position.x - XIncrement, transform.position.y);
             transform.position = targetPos;
         }
+
+
+
+        
     }
 
     void OnTriggerEnter2D(Collider2D pianoKey)
@@ -74,9 +70,18 @@ public class MovementControl : MonoBehaviour
 
         if (pianoKey.CompareTag("KeyOnThePiano"))
         {
+
             Destroy(gameObject);
-            
         }
+
+        else if (pianoKey.CompareTag("BottomSquare"))
+        {
+
+            Destroy(gameObject);
+        }
+
+        spawner.NewKey();
+
     }
 
 
