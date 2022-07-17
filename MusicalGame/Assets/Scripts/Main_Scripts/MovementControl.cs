@@ -11,6 +11,7 @@ public class MovementControl : MonoBehaviour
 {
     #region Variables
 
+    
     private Vector2 targetPos;
     public float XIncrement;
 
@@ -19,6 +20,11 @@ public class MovementControl : MonoBehaviour
 
     public float maximumBorderHeight;
     public float minimumBorderHeight;
+
+    private float previousTime;
+    public float fallTime = 0.8f;
+
+    public float respawnTime = 4.0f;
     #endregion
 
     #region Unity Methods
@@ -26,7 +32,7 @@ public class MovementControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(keyWave());
     }
 
     // Update is called once per frame
@@ -34,9 +40,23 @@ public class MovementControl : MonoBehaviour
     {
         //  transform.position = Vector2.MoveTowards(transform.position, targetPos, velocity * Time.deltaTime);
 
-        
-        transform.Translate(Vector2.down * speed * Time.deltaTime);
-        
+       
+
+
+        if (Time.time - previousTime > fallTime)
+        {
+
+
+            transform.Translate(Vector2.down * speed * Time.deltaTime);
+
+
+            keyWave();
+
+
+
+        }
+
+
         if (Input.GetKeyDown(KeyCode.RightArrow) && transform.position.x < maximumBorderHeight)
         {
             targetPos = new Vector2(transform.position.x + XIncrement, transform.position.y);
@@ -51,9 +71,22 @@ public class MovementControl : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D pianoKey)
     {
+
         if (pianoKey.CompareTag("KeyOnThePiano"))
         {
             Destroy(gameObject);
+            
+        }
+    }
+
+
+    IEnumerator keyWave()
+    {
+        while (true)
+        {
+            
+            yield return new WaitForSeconds(respawnTime);
+            FindObjectOfType<Spawner>().NewKey();
         }
     }
 

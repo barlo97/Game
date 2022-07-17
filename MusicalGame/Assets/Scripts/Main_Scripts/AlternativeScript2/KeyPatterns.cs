@@ -7,25 +7,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyCollision : MonoBehaviour
+public class Tetronemo : MonoBehaviour
 {
     #region Variables
-
-    
     #endregion
 
     #region Unity Methods
 	
-   
-
-     void OnTriggerEnter2D(Collider2D pianoKey)
+    // Start is called before the first frame update
+    void Start()
     {
-        if (pianoKey.CompareTag("KeyOnThePiano"))
-        {
-            Destroy(gameObject);
-        }
+        
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 
     #endregion
 }
