@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8750510175577621727}
   - component: {fileID: 5355008332024103251}
   - component: {fileID: 5688605054196859157}
-  - component: {fileID: 3833471707627380}
   m_Layer: 0
   m_Name: C_Key
   m_TagString: Untagged
@@ -132,15 +131,3 @@ MonoBehaviour:
   minimumBorderHeight: -9
   fallTime: 0.8
   respawnTime: 7
---- !u!114 &3833471707627380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6206577923697930445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42d4ac6726699484d9e421c78c8fedca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

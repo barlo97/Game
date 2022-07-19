@@ -89,7 +89,7 @@ public class MovementControl : MonoBehaviour
         {
             
             yield return new WaitForSeconds(respawnTime);
-            FindObjectOfType<Spawner>().NewKey();
+            FindObjectOfType<Spawner>().NewKeys();
         }
     }
 
