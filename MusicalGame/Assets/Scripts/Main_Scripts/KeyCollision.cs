@@ -11,20 +11,18 @@ public class KeyCollision : MonoBehaviour
 {
     #region Variables
 
-    
+
     #endregion
 
     #region Unity Methods
-	
-   
 
-     void OnTriggerEnter2D(Collider2D pianoKey)
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (pianoKey.CompareTag("KeyOnThePiano"))
-        {
-            Destroy(gameObject);
-        }
+        Debug.Log("The square collided with: " + collision.gameObject.name);
     }
+
 
 
     #endregion
