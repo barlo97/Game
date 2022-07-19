@@ -5,6 +5,24 @@ TagManager:
   serializedVersion: 2
   tags:
   - KeyOnThePiano
+  - BottomSquare
+  - C
+  - CSharp
+  - D
+  - DSharp
+  - E
+  - F
+  - FSharp
+  - G
+  - GSharp
+  - A
+  - ASharp
+  - B
+  - BFlat
+  - AFlat
+  - GFlat
+  - EFlat
+  - DFlat
   layers:
   - Default
   - TransparentFX
