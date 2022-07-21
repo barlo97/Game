@@ -11,6 +11,7 @@ public class Spawner : MonoBehaviour
 {
     #region Variables
     public GameObject[] Keys;
+    public static int generateKeys;
     #endregion
 
     #region Unity Methods
@@ -19,6 +20,7 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         NewKeys();
+        
     }
 
     // Update is called once per frame
@@ -28,9 +30,12 @@ public class Spawner : MonoBehaviour
     }
 
 
-    public void NewKeys()
+    public void NewKeys() 
     {
-        Instantiate(Keys[Random.Range(0, Keys.Length)], transform.position, Quaternion.identity);
+        Debug.Log($"Nuta = {generateKeys} zostala wygenerowana"); 
+        Instantiate(Keys[generateKeys++ % Keys.Length], transform.position, Quaternion.identity);
+        
+        
     }
 
 

@@ -11,7 +11,7 @@ public class TwoNotesSpawner : MonoBehaviour
 {
     #region Variables
     public GameObject[] TwoNotes;
-
+    public static int generateKeys;
     #endregion
 
     #region Unity Methods
@@ -20,7 +20,7 @@ public class TwoNotesSpawner : MonoBehaviour
     void Start()
     {
         NewKeys();
-
+        
     }
 
     // Update is called once per frame
@@ -32,7 +32,10 @@ public class TwoNotesSpawner : MonoBehaviour
 
     public void NewKeys()
     {
-        Instantiate(TwoNotes[Random.Range(0, TwoNotes.Length)], transform.position, Quaternion.identity);
+        Debug.Log("Klawisz = " + generateKeys);
+        Instantiate(TwoNotes[generateKeys % TwoNotes.Length], transform.position, Quaternion.identity);
+        generateKeys++;
+        
     }
 
 
