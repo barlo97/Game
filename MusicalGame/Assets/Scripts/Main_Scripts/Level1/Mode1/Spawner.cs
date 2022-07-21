@@ -7,31 +7,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnerE_F : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
     #region Variables
-    public GameObject[] KeysE_F;
+    public GameObject[] Keys;
     #endregion
 
     #region Unity Methods
-
+	
     // Start is called before the first frame update
     void Start()
     {
-        NewKeysE_F();
+        NewKeys();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+       
     }
 
 
-    public void NewKeysE_F()
+    public void NewKeys()
     {
-        Instantiate(KeysE_F[Random.Range(0, KeysE_F.Length)], transform.position, Quaternion.identity);
+        Instantiate(Keys[Random.Range(0, Keys.Length)], transform.position, Quaternion.identity);
     }
+
 
     #endregion
 }

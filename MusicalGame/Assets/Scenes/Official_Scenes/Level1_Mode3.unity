@@ -1981,12 +1981,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1112193556}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b7ca17de65de4548bba0689c2738e15, type: 3}
+  m_Script: {fileID: 11500000, guid: d00b4d52234916246bd05d30abff0c03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KeysE_F:
-  - {fileID: 3565820829025004153, guid: 8ad1d84b00ebe2d42b026f670f4b36ed, type: 3}
-  - {fileID: 7105703998226536051, guid: 49da86d2394630d4aad910b2ddbed0af, type: 3}
+  TwoNotes:
+  - {fileID: 1214264341232260541, guid: 8ad1d84b00ebe2d42b026f670f4b36ed, type: 3}
+  - {fileID: 200744084596146954, guid: 8b51de6ef89c9d9438cb5091f1e7b7b4, type: 3}
 --- !u!1 &1151675117
 GameObject:
   m_ObjectHideFlags: 0

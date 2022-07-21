@@ -7,8 +7,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovConE_F : MonoBehaviour
+public class Level2_MovCont : MonoBehaviour
 {
+    #region Variables
+
 
     private Vector2 targetPos;
     public float XIncrement;
@@ -25,7 +27,7 @@ public class MovConE_F : MonoBehaviour
     public float respawnTime = 4.0f;
 
     private Spawner spawner;
-
+    #endregion
 
     #region Unity Methods
 
@@ -45,16 +47,16 @@ public class MovConE_F : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.RightArrow) && transform.position.x < maximumBorderHeight)
-        {
-            targetPos = new Vector2(transform.position.x + XIncrement, transform.position.y);
-            transform.position = targetPos;
-        }
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && transform.position.x > minimumBorderHeight)
-        {
-            targetPos = new Vector2(transform.position.x - XIncrement, transform.position.y);
-            transform.position = targetPos;
-        }
+        //if (Input.GetKeyDown(KeyCode.RightArrow) && transform.position.x < maximumBorderHeight)
+        //{
+        //    targetPos = new Vector2(transform.position.x + XIncrement, transform.position.y);
+        //    transform.position = targetPos;
+        //}
+        //if (Input.GetKeyDown(KeyCode.LeftArrow) && transform.position.x > minimumBorderHeight)
+        //{
+        //    targetPos = new Vector2(transform.position.x - XIncrement, transform.position.y);
+        //    transform.position = targetPos;
+        //}
 
 
 
@@ -87,9 +89,10 @@ public class MovConE_F : MonoBehaviour
         {
 
             yield return new WaitForSeconds(respawnTime);
-            FindObjectOfType<SpawnerE_F>().NewKeysE_F();
+            FindObjectOfType<Level2_SpawnerStatic>().NewKeys();
         }
     }
+
 
     #endregion
 }
