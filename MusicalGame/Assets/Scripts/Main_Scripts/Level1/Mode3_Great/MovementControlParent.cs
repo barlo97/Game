@@ -66,7 +66,7 @@ public class MovementControlParent : MonoBehaviour
     void OnTriggerEnter2D(Collider2D pianoKey)
     {
 
-        if (pianoKey.CompareTag("KeyOnThePiano"))
+        if (pianoKey.CompareTag("C") || pianoKey.CompareTag("CSharp") || pianoKey.CompareTag("D") || pianoKey.CompareTag("DSharp") || pianoKey.CompareTag("E") || pianoKey.CompareTag("F") || pianoKey.CompareTag("FSharp") || pianoKey.CompareTag("G") || pianoKey.CompareTag("GSharp") || pianoKey.CompareTag("A") || pianoKey.CompareTag("ASharp") || pianoKey.CompareTag("B"))
         {
 
             _note = GameObject.FindObjectOfType<SpawnerParent>().Note;
@@ -74,6 +74,7 @@ public class MovementControlParent : MonoBehaviour
             {
 
                 Destroy(_note);
+               
             }
             
         }
@@ -81,6 +82,7 @@ public class MovementControlParent : MonoBehaviour
   
     }
 
+    
 
 
     #endregion
