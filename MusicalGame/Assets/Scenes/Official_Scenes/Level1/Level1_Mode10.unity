@@ -306,6 +306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Keys:
   - {fileID: 4759849249611592749, guid: c4e338bb0ae09664a820dcbbba98adef, type: 3}
+  - {fileID: 3868813710766210428, guid: 67c06c86c21af3042867cdd8e724cc69, type: 3}
   - {fileID: 592768392163588320, guid: 4d56b59457eac1b4b8710ad319a83779, type: 3}
   - {fileID: 8177008262132034189, guid: 753d50dbe086e254fab3b732e42f56b0, type: 3}
   - {fileID: 482352688357758710, guid: c4f3e52458737564aa6e62761da4bb19, type: 3}
@@ -320,7 +321,6 @@ MonoBehaviour:
   - {fileID: 2609566304885541748, guid: 2d63dc59d3d2e2846934f2c5e8a924fb, type: 3}
   - {fileID: 4657890389422045998, guid: b2fa57dd01579334c9548b80e8b7bf39, type: 3}
   - {fileID: 3591891378287803718, guid: cbf65da06ccc8654ebe4575557c7d406, type: 3}
-  - {fileID: 3868813710766210428, guid: 67c06c86c21af3042867cdd8e724cc69, type: 3}
   - {fileID: 5936128102220192687, guid: 714628d92538fb54e86de241abc6bdab, type: 3}
 --- !u!1 &156904542
 GameObject:

@@ -7,13 +7,13 @@ using UnityEngine;
 
 public class Level2_SpawnerStatic : MonoBehaviour
 {
-
     #region Variables
-    public GameObject[] TwoNotes;
-    private Vector2 targetPos;
-    public float maximumBorderWidth;
-    public float minimumBorderWidth;
-    public float XIncrement;
+    public GameObject[] Keys;
+    private GameObject note;
+
+    private float minimumX_Negative;
+    private float maximumX_Positive;
+    private float _xIncrement;
     #endregion
 
     #region Unity Methods
@@ -21,41 +21,65 @@ public class Level2_SpawnerStatic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        NewKeys();
-
+        GenerateFirstKey();
     }
 
     // Update is called once per frame
     void Update()
     {
-      
-    }
-
-
-    public void NewKeys()
-    {
-        Instantiate(TwoNotes[Random.Range(0, TwoNotes.Length)], transform.position, Quaternion.identity);
-    }
-
-
-    public void MoveSpawnerRight()
-    {
-        if (transform.position.x + XIncrement < maximumBorderWidth)
+        // Keep the key to always 'alive'
+        if (note == null)
         {
-            Debug.Log("Go Right");
-            targetPos = new Vector2(transform.position.x + XIncrement, transform.position.y);
-            transform.position = targetPos;
+            note = GenerateNewKey();
         }
     }
 
-    public void MoveSpawnerLeft()
+    public GameObject GenerateFirstKey()
     {
-        if (transform.position.x - XIncrement > minimumBorderWidth)
+        
+        var index = Random.Range(0, Keys.Length);
+
+        // Instantiate key on corresponding position
+        note = Instantiate(Keys[index], transform.position, Quaternion.identity);
+        minimumX_Negative = FindObjectOfType<Level2_MovementControlStatic>().minimumX_Negative;
+        maximumX_Positive = FindObjectOfType<Level2_MovementControlStatic>().maximumX_Positive;
+        _xIncrement = FindObjectOfType<Level2_MovementControlStatic>().XIncrement;
+
+        // Copy position of this "Level2_Spawner"
+        var position = transform.position;
+
+        // Calculate position 'x' for new instance of key.        
+        position.x = minimumX_Negative + index * _xIncrement;
+        transform.position = position;
+        note.transform.position = position;
+        return note;
+    }
+
+    public GameObject GenerateNewKey()
+    {
+        DestroyKey();
+        // Generate index for 'key' to instantiate
+        var index = Random.Range(0, Keys.Length);
+
+        // Copy position of this "Level2_Spawner"
+        var position = transform.position;
+
+        // Calculate position 'x' for new instance of key.        
+        position.x = minimumX_Negative + index * _xIncrement;
+        transform.position = position;
+        // Instantiate key on corresponding position
+        return note = Instantiate(Keys[index], position, Quaternion.identity);
+    }
+
+    public void DestroyKey()
+    {
+        // Check if key is already destroyed 
+        // If so: do nothing, if not: destroy it
+        if (note == null)
         {
-            Debug.Log("Go Left");
-            targetPos = new Vector2(transform.position.x - XIncrement, transform.position.y);
-            transform.position = targetPos;
+            return;
         }
+        Destroy(note);
     }
     #endregion
 }
