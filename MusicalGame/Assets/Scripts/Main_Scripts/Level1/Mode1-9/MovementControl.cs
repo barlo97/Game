@@ -96,16 +96,4 @@ public class MovementControl : MonoBehaviour
     #endregion
 }
 
-// Class Extension For Checking Whether the Note hit the appropropriate key on the piano
-public static class Extensions
-{
-    public static bool CompareTagsExtension(this Collider2D pianoKey)
-    {
-        return pianoKey.CompareTag("C") || pianoKey.CompareTag("CSharp")
-            || pianoKey.CompareTag("D") || pianoKey.CompareTag("DSharp")
-            || pianoKey.CompareTag("E") || pianoKey.CompareTag("F")
-            || pianoKey.CompareTag("FSharp") || pianoKey.CompareTag("G")
-            || pianoKey.CompareTag("GSharp") || pianoKey.CompareTag("A")
-            || pianoKey.CompareTag("ASharp") || pianoKey.CompareTag("B");
-    }
-}
+

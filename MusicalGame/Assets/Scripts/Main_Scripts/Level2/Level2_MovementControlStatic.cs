@@ -46,8 +46,7 @@ public class Level2_MovementControlStatic : MonoBehaviour
     void OnTriggerEnter2D(Collider2D pianoKey)
     {
         if (pianoKey.CompareTagsExtension())
-        {
-            Debug.Log("KOlIZJA : " + pianoKey.name);
+        {          
             _spawner.DestroyKey();
         }
     }

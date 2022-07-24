@@ -3,6 +3,7 @@
 */
 
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -55,29 +56,25 @@ public class Level2_MovementControlNonStatic : MonoBehaviour
             transform.position = targetPos;
             moved = true;
         }
-
-        // If key has been moved in current frame:
-        //      Calculate index from position.
-        //      Destroy current key
-        //      Generate new key based on calculated index
+       
 
         if (moved)
         {
-            var index = (int)((transform.position.x - minimumX_Negative) / XIncrement);
-            _spawner.DestroyKey();
-            _spawner.ReplaceExistingKey(index, transform.position);
+            _spawner.DestroyNote();
+            var note = GenericScript.CalculateNoteNameFromPosition(transform.position.x, "Flat");                               
+            _spawner.ReplaceExistingNote(note, transform.position);
         }
     }
 
     void OnTriggerEnter2D(Collider2D pianoKey)
     {
-
         if (pianoKey.CompareTagsExtension())
-        {
-            Debug.Log("COLLISION + " + pianoKey.name);
-
-            _spawner.DestroyKey();
+        {            
+            _spawner.DestroyNote();
+            _spawner.GenerateNewNote();
         }
     }
+
+   
     #endregion
 }

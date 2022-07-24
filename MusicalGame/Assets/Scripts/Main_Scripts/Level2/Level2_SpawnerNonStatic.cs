@@ -6,17 +6,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+using System;
 
 public class Level2_SpawnerNonStatic : MonoBehaviour
 {
     #region Variables
     public GameObject[] Keys;
-    private GameObject note;
-    public GameObject Kostka { get => note; }
+    private GameObject note;   
+    public GameObject Note { get => note; }
 
-    private float minimumX_Negative;
-    private float maximumX_Positive;
-    private float _xIncrement;
     #endregion
 
     #region Unity Methods
@@ -24,87 +23,121 @@ public class Level2_SpawnerNonStatic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GenerateFirstKey();
-        // Initialize new key on a board     
+        GenerateFirstNote();
+        // Initialize new note on a board     
     }
 
     // Update is called once per frame
     void Update()
-    {
-        // Keep the key to always 'alive'
-        if (note == null)
-        {
-            note = GenerateNewKey();
-        }
+    {    
     }
 
-    public GameObject GenerateFirstKey()
+    public GameObject GenerateFirstNote()
     {
-        var index = Random.Range(0, Keys.Length);
+        var index = UnityEngine.Random.Range(0, Keys.Length);
+        var posX = GenericScript.CalculatePositionFromNoteName(Keys[index].name);
+        var vector2D = new Vector2(posX, transform.position.y);
+        transform.position = vector2D;
 
         // Instantiate key on corresponding position
-        note = Instantiate(Keys[index], transform.position, Quaternion.identity);
-        minimumX_Negative = FindObjectOfType<Level2_MovementControlNonStatic>().minimumX_Negative;
-        maximumX_Positive = FindObjectOfType<Level2_MovementControlNonStatic>().maximumX_Positive;
-        _xIncrement = FindObjectOfType<Level2_MovementControlNonStatic>().XIncrement;
+        return note = Instantiate(Keys[index], transform.position, Quaternion.identity);             
+    }
 
-        // Copy position of this "Level2_Spawner"
-        var position = transform.position;
-
-        // Calculate position 'x' for new instance of key.        
-        position.x = minimumX_Negative + index * _xIncrement;
-        transform.position = position;
-        note.transform.position = position;
+    public GameObject GenerateNewNote()
+    {
+        DestroyNote();
+        // Generate index for 'key' to instantiate
+        var index = UnityEngine.Random.Range(0, Keys.Length);
+        var posX = GenericScript.CalculatePositionFromNoteName(Keys[index].name);
+        var vector2D = new Vector2(posX, transform.position.y);
+        transform.position = vector2D;
+      
+        note = Instantiate(Keys[index], vector2D, Quaternion.identity);
+        SynchronizeNotes();
         return note;
     }
 
-    public GameObject GenerateNewKey()
-    {
-        DestroyKey();
-        // Generate index for 'key' to instantiate
-        var index = Random.Range(0, Keys.Length);
-
-        // Copy position of this "Level2_Spawner"
-        var position = transform.position;
-
-        // Calculate position 'x' for new instance of key.        
-        position.x = minimumX_Negative + index * _xIncrement;
-
-
-        // Instantiate key on corresponding position
-        transform.position = position;
-        return note = Instantiate(Keys[index], position, Quaternion.identity);
-    }
-
-    public GameObject ReplaceExistingKey(int index, Vector3 position)
+    public GameObject ReplaceExistingNote(string noteName, Vector2 position)
     {
         // Destroy existing key
-        DestroyKey();
-
-        // Check if given index is valid
-        if (index < 0 || index >= Keys.Length)
+        DestroyNote();
+        var tempNote = Keys.FirstOrDefault(x => x.name == noteName);      
+        if(tempNote == null)
         {
-            index = 0;
+            tempNote = Keys[0];
         }
 
         // Instantiate specific key on a given position
         var targetPos = new Vector2(position.x, transform.position.y);
         transform.position = targetPos;
-
-        Debug.Log("Note : " + Keys[index].name);
-
-        return note = Instantiate(Keys[index], position, Quaternion.identity);
+        note = Instantiate(tempNote, position, Quaternion.identity);
+        SynchronizeNotes();
+        return note;
     }
 
-    public void DestroyKey()
+    public void DestroyNote()
     {
         // Check if key is already destroyed 
         // If so: do nothing, if not: destroy it
         if (note == null)
         {
             return;
-        }
+        }    
         Destroy(note);
+        note = null;
+    }
+
+    void SynchronizeNotes()
+    {
+        var staticSpawner = FindObjectOfType(typeof(Level2_SpawnerStatic));
+        //var nonStaticNote = FindObjectOfType<Level2_MovementControlNonStatic>().gameObject;
+        if (staticSpawner == null)
+        {
+            Debug.Log(" nonStaticNote == null");
+        }
+
+        if (note == null)
+        {
+            Debug.Log(" note == null");
+        }
+
+        if (staticSpawner == null || note == null)
+        {
+            return;
+        }
+        var staticNote = ((Level2_SpawnerStatic)staticSpawner).Note;
+        if (staticNote == null)
+        {
+            return;
+        }
+
+        var diff = Mathf.Abs(staticNote.transform.position.y - note.transform.position.y);
+
+        if ( diff > (float)0.01 && diff < 5)
+        {
+            Debug.Log("------------BEFORE------------}");
+            Debug.Log($"nonstatic y: {staticNote.transform.position.y}\n\t         static   y: {note.transform.position.y}");
+            Debug.Log("------------BEFORE------------}");
+
+            
+
+            if (staticNote.transform.position.y > note.transform.position.y)
+            {
+                Debug.Log($"{note.name}  wyzej niz {staticNote.name}. Przesuwanie {staticNote.name} w gore");
+                var newPost = new Vector2(note.transform.position.x, staticNote.transform.position.y);
+                note.transform.position = newPost;
+            }
+            else
+            {
+                Debug.Log($"{staticNote.name}  wyzej niz {note.name}. Przesuwanie {note.name} w gore");
+                var newPost = new Vector2(staticNote.transform.position.x, note.transform.position.y);
+                staticNote.transform.position = newPost;
+            }
+
+            Debug.Log("------------AFTER------------}");
+            Debug.Log($"nonstatic y: {staticNote.transform.position.y}\n\t         static   y: {note.transform.position.y}");
+            Debug.Log("------------AFTER------------}");
+        }
     }
 
     #endregion

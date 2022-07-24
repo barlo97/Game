@@ -10,6 +10,7 @@ public class Level2_SpawnerStatic : MonoBehaviour
     #region Variables
     public GameObject[] Keys;
     private GameObject note;
+    public GameObject Note { get { return note; } }
 
     private float minimumX_Negative;
     private float maximumX_Positive;
@@ -36,23 +37,13 @@ public class Level2_SpawnerStatic : MonoBehaviour
 
     public GameObject GenerateFirstKey()
     {
-        
         var index = Random.Range(0, Keys.Length);
+        var posX = GenericScript.CalculatePositionFromNoteName(Keys[index].name);
+        var vector2D = new Vector2(posX, transform.position.y);
+        transform.position = vector2D;
 
         // Instantiate key on corresponding position
-        note = Instantiate(Keys[index], transform.position, Quaternion.identity);
-        minimumX_Negative = FindObjectOfType<Level2_MovementControlStatic>().minimumX_Negative;
-        maximumX_Positive = FindObjectOfType<Level2_MovementControlStatic>().maximumX_Positive;
-        _xIncrement = FindObjectOfType<Level2_MovementControlStatic>().XIncrement;
-
-        // Copy position of this "Level2_Spawner"
-        var position = transform.position;
-
-        // Calculate position 'x' for new instance of key.        
-        position.x = minimumX_Negative + index * _xIncrement;
-        transform.position = position;
-        note.transform.position = position;
-        return note;
+        return note = Instantiate(Keys[index], vector2D, Quaternion.identity);       
     }
 
     public GameObject GenerateNewKey()
@@ -60,15 +51,12 @@ public class Level2_SpawnerStatic : MonoBehaviour
         DestroyKey();
         // Generate index for 'key' to instantiate
         var index = Random.Range(0, Keys.Length);
+        var posX = GenericScript.CalculatePositionFromNoteName(Keys[index].name);
+        var vector2D = new Vector2(posX, transform.position.y);
+        transform.position = vector2D;
 
-        // Copy position of this "Level2_Spawner"
-        var position = transform.position;
-
-        // Calculate position 'x' for new instance of key.        
-        position.x = minimumX_Negative + index * _xIncrement;
-        transform.position = position;
         // Instantiate key on corresponding position
-        return note = Instantiate(Keys[index], position, Quaternion.identity);
+        return note = Instantiate(Keys[index], vector2D, Quaternion.identity);
     }
 
     public void DestroyKey()
@@ -80,6 +68,7 @@ public class Level2_SpawnerStatic : MonoBehaviour
             return;
         }
         Destroy(note);
-    }
+    }  
+
     #endregion
 }
