@@ -20,6 +20,7 @@ public class Level2_Spawner : MonoBehaviour
     void Start()
     {
         NewKeys();
+        Debug.Log(FindObjectOfType<Level2_MovContNonStatic>().maximumBorderHeight + "MAXIMUM BORDER");
 
     }
 

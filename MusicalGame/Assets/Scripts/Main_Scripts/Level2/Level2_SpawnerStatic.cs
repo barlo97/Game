@@ -3,8 +3,6 @@
 */
 
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Level2_SpawnerStatic : MonoBehaviour
@@ -12,7 +10,10 @@ public class Level2_SpawnerStatic : MonoBehaviour
 
     #region Variables
     public GameObject[] TwoNotes;
-
+    private Vector2 targetPos;
+    public float maximumBorderWidth;
+    public float minimumBorderWidth;
+    public float XIncrement;
     #endregion
 
     #region Unity Methods
@@ -27,7 +28,7 @@ public class Level2_SpawnerStatic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+      
     }
 
 
@@ -37,5 +38,24 @@ public class Level2_SpawnerStatic : MonoBehaviour
     }
 
 
+    public void MoveSpawnerRight()
+    {
+        if (transform.position.x + XIncrement < maximumBorderWidth)
+        {
+            Debug.Log("Go Right");
+            targetPos = new Vector2(transform.position.x + XIncrement, transform.position.y);
+            transform.position = targetPos;
+        }
+    }
+
+    public void MoveSpawnerLeft()
+    {
+        if (transform.position.x - XIncrement > minimumBorderWidth)
+        {
+            Debug.Log("Go Left");
+            targetPos = new Vector2(transform.position.x - XIncrement, transform.position.y);
+            transform.position = targetPos;
+        }
+    }
     #endregion
 }
